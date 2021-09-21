@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/ambrosians/static/css/main.76598800.chunk.css",
+    "main.js": "/ambrosians/static/js/main.7b74186e.chunk.js",
+    "main.js.map": "/ambrosians/static/js/main.7b74186e.chunk.js.map",
+    "runtime-main.js": "/ambrosians/static/js/runtime-main.bf34d2be.js",
+    "runtime-main.js.map": "/ambrosians/static/js/runtime-main.bf34d2be.js.map",
+    "static/js/2.b13b9bab.chunk.js": "/ambrosians/static/js/2.b13b9bab.chunk.js",
+    "static/js/2.b13b9bab.chunk.js.map": "/ambrosians/static/js/2.b13b9bab.chunk.js.map",
+    "static/js/3.4b09a4f2.chunk.js": "/ambrosians/static/js/3.4b09a4f2.chunk.js",
+    "static/js/3.4b09a4f2.chunk.js.map": "/ambrosians/static/js/3.4b09a4f2.chunk.js.map",
+    "index.html": "/ambrosians/index.html",
+    "static/css/main.76598800.chunk.css.map": "/ambrosians/static/css/main.76598800.chunk.css.map",
+    "static/js/2.b13b9bab.chunk.js.LICENSE.txt": "/ambrosians/static/js/2.b13b9bab.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.bf34d2be.js",
+    "static/js/2.b13b9bab.chunk.js",
+    "static/css/main.76598800.chunk.css",
+    "static/js/main.7b74186e.chunk.js"
+  ]
+}
