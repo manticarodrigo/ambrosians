@@ -2,12 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 // import App from './App';
-import ComingSoonPage from "./pages/ComingSoon";
+import LandingPage from "./pages/LandingPage";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
-    <ComingSoonPage />
+    <LandingPage />
   </React.StrictMode>,
   document.getElementById("root")
 );
