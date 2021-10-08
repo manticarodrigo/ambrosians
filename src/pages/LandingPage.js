@@ -223,7 +223,7 @@ const LandingPage = () => {
           <p className="py-8 text-white text-center md:text-3xl max-w-4xl">
             Contact Us
           </p>
-          <ul className="max-w-7xl flex flex-wrap my-8 text-sm md:text-xl text-white">
+          <ul className="max-w-7xl flex flex-col md:flex-row my-8 text-sm md:text-xl text-white">
             <li className="m-4">
               <a
                 target="_blank"
@@ -231,10 +231,10 @@ const LandingPage = () => {
                 href="https://discord.gg/ambrosians"
                 className="flex items-center">
                 <img
-                  className="rounded inline-block w-12"
+                  className="rounded inline-block w-8 md:w-12"
                   src={`/images/social/discord.png`}
                 />
-                <p className="pl-4 font-black text-2xl">Discord</p>
+                <p className="pl-4 font-black">Discord</p>
               </a>
             </li>
             <li className="m-4">
@@ -244,10 +244,10 @@ const LandingPage = () => {
                 href="https://twitter.com/AmbrosiansNFT"
                 className="flex items-center">
                 <img
-                  className="rounded inline-block w-12"
+                  className="rounded inline-block w-8 md:w-12"
                   src={`/images/social/twitter.png`}
                 />
-                <p className="pl-4 font-black text-2xl">Twitter</p>
+                <p className="pl-4 font-black">Twitter</p>
               </a>
             </li>
           </ul>
