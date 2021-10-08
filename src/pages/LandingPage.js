@@ -130,8 +130,8 @@ const LandingPage = () => {
           </h2>
         </div>
         <div className="flex flex-col items-center p-16 w-full bg-black">
-          <div className="max-w-7xl flex flex-col md:flex-row items-center">
-            <ul className="my-8 md:w-1/2 text-sm md:text-xl text-white">
+          <div className="max-w-7xl flex flex-col lg:flex-row items-center">
+            <ul className="p-8 lg:p-16 md:w-1/2 text-sm md:text-xl text-white">
               {iconList.map(({ icon, text }, index) => (
                 <li key={index} className="flex items-center">
                   <img
