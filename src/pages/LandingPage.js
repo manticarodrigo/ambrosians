@@ -222,11 +222,18 @@ const LandingPage = () => {
               </a>
             </li>
           </ul>
-          <img
-            src="/images/logo.png"
-            className="w-48"
-            label="Ambrosians Logo"
-          />
+          <button
+            aria-label="scroll to top"
+            onClick={() => {
+              document.body.scrollTop = 0 // For Safari
+              document.documentElement.scrollTop = 0 // For Chrome, Firefox, IE and Opera
+            }}>
+            <img
+              src="/images/logo.png"
+              className="w-48"
+              label="Ambrosians Logo"
+            />
+          </button>
           <p className="text-white">All rights reserved 2021 ©</p>
         </div>
       </section>
