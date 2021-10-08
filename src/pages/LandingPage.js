@@ -116,36 +116,7 @@ const LandingPage = () => {
           </h2>
         </div>
         <div className="flex flex-col items-center p-16 w-full bg-black">
-          <p className="py-8 text-white text-center md:text-3xl max-w-4xl">
-            Ambrosians is a collection of 7,777 generative NFTs, composed of
-            7,765 Ambrosians and 12 unique 1/1 Titans. Being a holder will open
-            many more doors than just those into Olympus. Ambrosians and Titans
-            will double as a social-club membership card while also attributing
-            an attractive royalty yielding capability. The membership card will
-            provide VIP access and stay-in vacation privileges in
-            “Poseidon&apos;s Lounge,” a real world social club located on the
-            beach. All Ambrosians will have access to the facility, but only
-            Titan holders will have the availability to book the amenities
-            overnight for free. (Reservations made online)
-          </p>
-          <p className="py-8 text-white text-center md:text-3xl max-w-4xl">
-            100% of the royalties will be used towards the project. 50% towards
-            covering expenses for Poseidon&apos;s Lounge, and making our roadmap
-            a reality. The other 50% will be divided amongst holders.
-          </p>
-          <p className="py-8 text-white text-center md:text-3xl max-w-4xl">
-            12 unique 1/1 Titans in the collection will provide a monthly-yield
-            of 12% of the royalties from the secondary market and will be
-            distributed evenly amongst them. The other 38% of the royalties will
-            be distributed to Ambrosian holders via a randomly-selected skin
-            attribute lottery that will take place once a month. This will
-            encourage secondary market trading and reward holders with varied
-            collections. Each skin will have the same percentage of being
-            selected. The royalty rewards will be split amongst all the holders
-            of the selected skin (rarer skins will split the rewards with less
-            people). This will make for more substantial royalties, as opposed
-            to diluting them amongst the entire pool of holders.
-          </p>
+          <img src="/images/manifesto.png" />
         </div>
       </section>
       <section className="flex flex-col items-center w-full">
