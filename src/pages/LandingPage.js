@@ -20,7 +20,7 @@ const teamList = [
   { src: 'hercules', name: 'Hercules', role: 'Community Marketing' },
   { src: 'diogenes', name: 'Diogenes', role: 'Legal' },
   { src: 'perseus', name: 'Perseus', role: 'Finance' },
-  { src: 'blackivory', name: 'BlackIvory', role: 'Artist' },
+  { src: 'ivoryblack', name: 'IvoryBlack', role: 'Artist' },
   { src: 'rorro', name: 'Rorro', role: 'Dev' }
 ]
 
@@ -38,7 +38,7 @@ const LandingPage = () => {
     <main>
       <section className="flex flex-col items-center w-full">
         <div
-          className="flex flex-col justify-center items-center py-80 w-full bg-fixed bg-no-repeat bg-cover bg-top"
+          className="flex flex-col justify-center items-center py-80 w-full bg-no-repeat bg-cover bg-top"
           style={{
             backgroundImage: 'url(/images/backgrounds/1.jpg)'
           }}>
@@ -54,7 +54,7 @@ const LandingPage = () => {
         <div className="flex flex-col items-center p-16 w-full bg-black">
           <div className="py-8 flex flex-wrap justify-center max-w-4xl">
             {R.range(1, 5).map(num => (
-              <div key={num} className="p-2 md:p-4 w-1/3 md:w-1/4">
+              <div key={num} className="p-2 md:p-4 w-1/2 md:w-1/4">
                 <img
                   className="rounded shadow-2xl"
                   src={`/images/samples/${num}.png`}
@@ -107,7 +107,7 @@ const LandingPage = () => {
       </section>
       <section className="flex flex-col items-center w-full">
         <div
-          className="flex justify-center py-80 w-full bg-fixed bg-no-repeat bg-cover bg-top"
+          className="flex justify-center py-80 w-full bg-no-repeat bg-cover bg-top"
           style={{
             backgroundImage: 'url(/images/backgrounds/2.jpg)'
           }}>
@@ -134,23 +134,23 @@ const LandingPage = () => {
             a reality. The other 50% will be divided amongst holders.
           </p>
           <p className="py-8 text-white text-center md:text-3xl max-w-4xl">
-            12 unique 1/1 Titans in the collection will monthly-yield 12% of the
-            royalties from the secondary market and will be distributed evenly
-            amongst them. The other 38% of the royalties will be distributed to
-            Ambrosian holders via a randomly-selected skin attribute lottery
-            that will take place once a month. This will encourage secondary
-            market trading and reward holders with varied collections. Each skin
-            will have the same percentage of being selected. The royalty rewards
-            will be split amongst all the holders of the selected skin (rarer
-            skins will split the rewards with less people). This will make for
-            more substantial royalties, as opposed to diluting them amongst the
-            entire pool of holders.
+            12 unique 1/1 Titans in the collection will provide a monthly-yield
+            of 12% of the royalties from the secondary market and will be
+            distributed evenly amongst them. The other 38% of the royalties will
+            be distributed to Ambrosian holders via a randomly-selected skin
+            attribute lottery that will take place once a month. This will
+            encourage secondary market trading and reward holders with varied
+            collections. Each skin will have the same percentage of being
+            selected. The royalty rewards will be split amongst all the holders
+            of the selected skin (rarer skins will split the rewards with less
+            people). This will make for more substantial royalties, as opposed
+            to diluting them amongst the entire pool of holders.
           </p>
         </div>
       </section>
       <section className="flex flex-col items-center w-full">
         <div
-          className="flex flex-col justify-center items-center py-80 w-full bg-fixed bg-no-repeat bg-cover bg-top"
+          className="flex flex-col justify-center items-center py-80 w-full bg-no-repeat bg-cover bg-top"
           style={{
             backgroundImage: 'url(/images/backgrounds/3.jpg)'
           }}>
@@ -191,7 +191,7 @@ const LandingPage = () => {
       </section>
       <section className="flex flex-col items-center w-full">
         <div
-          className="flex flex-col justify-center items-center py-80 w-full bg-fixed bg-no-repeat bg-cover bg-top"
+          className="flex flex-col justify-center items-center py-80 w-full bg-no-repeat bg-cover bg-top"
           style={{
             backgroundImage: 'url(/images/backgrounds/4.jpg)'
           }}>
@@ -202,13 +202,13 @@ const LandingPage = () => {
         </div>
         <div className="flex flex-col items-center p-16 w-full bg-black">
           <p className="py-8 text-white text-center md:text-3xl max-w-4xl">
-            Meet the team
+            Meet the Team
           </p>
           <ul className="max-w-7xl flex flex-wrap my-8 text-sm md:text-xl text-white">
             {teamList.map(({ src, name, role }, index) => (
               <li
                 key={index}
-                className="flex flex-col w-1/2 md:w-1/3 my-4 flex items-center">
+                className="flex flex-col items-center w-1/2 md:w-1/3 my-4">
                 <img
                   className="rounded inline-block w-24 md:w-48"
                   src={`/images/team/${src}.jpeg`}
@@ -220,6 +220,43 @@ const LandingPage = () => {
               </li>
             ))}
           </ul>
+          <p className="py-8 text-white text-center md:text-3xl max-w-4xl">
+            Contact Us
+          </p>
+          <ul className="max-w-7xl flex flex-wrap my-8 text-sm md:text-xl text-white">
+            <li className="m-4">
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href="https://discord.gg/ambrosians"
+                className="flex items-center">
+                <img
+                  className="rounded inline-block w-12"
+                  src={`/images/social/discord.png`}
+                />
+                <p className="pl-4 font-black text-2xl">Discord</p>
+              </a>
+            </li>
+            <li className="m-4">
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href="https://twitter.com/AmbrosiansNFT"
+                className="flex items-center">
+                <img
+                  className="rounded inline-block w-12"
+                  src={`/images/social/twitter.png`}
+                />
+                <p className="pl-4 font-black text-2xl">Twitter</p>
+              </a>
+            </li>
+          </ul>
+          <img
+            src="/images/logo.png"
+            className="w-48"
+            label="Ambrosians Logo"
+          />
+          <p className="text-white">All rights reserved 2021 ©</p>
         </div>
       </section>
     </main>
