@@ -38,7 +38,7 @@ const LandingPage = () => {
     <main>
       <section className="flex flex-col items-center w-full">
         <div
-          className="flex flex-col justify-center items-center py-80 w-full bg-no-repeat bg-cover bg-top"
+          className="flex flex-col justify-center items-center py-80 w-full xl:bg-fixed bg-no-repeat bg-cover bg-top"
           style={{
             backgroundImage: 'url(/images/backgrounds/1.jpg)'
           }}>
@@ -107,7 +107,7 @@ const LandingPage = () => {
       </section>
       <section className="flex flex-col items-center w-full">
         <div
-          className="flex justify-center py-80 w-full bg-no-repeat bg-cover bg-top"
+          className="flex justify-center py-80 w-full xl:bg-fixed bg-no-repeat bg-cover bg-top"
           style={{
             backgroundImage: 'url(/images/backgrounds/2.jpg)'
           }}>
@@ -121,7 +121,7 @@ const LandingPage = () => {
       </section>
       <section className="flex flex-col items-center w-full">
         <div
-          className="flex flex-col justify-center items-center py-80 w-full bg-no-repeat bg-cover bg-top"
+          className="flex flex-col justify-center items-center py-80 w-full xl:bg-fixed bg-no-repeat bg-cover bg-top"
           style={{
             backgroundImage: 'url(/images/backgrounds/3.jpg)'
           }}>
@@ -162,7 +162,7 @@ const LandingPage = () => {
       </section>
       <section className="flex flex-col items-center w-full">
         <div
-          className="flex flex-col justify-center items-center py-80 w-full bg-no-repeat bg-cover bg-top"
+          className="flex flex-col justify-center items-center py-80 w-full xl:bg-fixed bg-no-repeat bg-cover bg-top"
           style={{
             backgroundImage: 'url(/images/backgrounds/4.jpg)'
           }}>
