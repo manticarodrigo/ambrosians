@@ -24,11 +24,42 @@ const teamList = [
   { src: 'rorro', name: 'Rorro', role: 'Dev' }
 ]
 
-const Header = props => (
-  <h1
-    className="max-w-sm md:max-w-3xl text-4xl md:text-7xl font-caesar text-center text-white text-shadow"
+const Section = props => {
+  return <section className="flex flex-col items-center w-full" {...props} />
+}
+
+const Header = ({ level = '2', ...props }) => {
+  const Component = `h${level}`
+
+  return (
+    <Component
+      className="max-w-sm md:max-w-3xl text-4xl md:text-7xl font-caesar text-center text-white text-shadow"
+      {...props}
+    />
+  )
+}
+
+const ParallaxSection = ({ url, ...props }) => {
+  return (
+    <div
+      className="flex flex-col justify-center items-center py-80 w-full xl:bg-fixed bg-no-repeat bg-cover bg-top"
+      style={{
+        backgroundImage: `url(${url})`
+      }}
+      {...props}
+    />
+  )
+}
+
+const ContentSection = props => (
+  <div
+    className="flex flex-col items-center p-8 md:p-16 w-full bg-black"
     {...props}
   />
+)
+
+const Paragraph = props => (
+  <p className="py-8 text-white text-center md:text-3xl max-w-4xl" {...props} />
 )
 
 const LandingPage = () => {
@@ -36,13 +67,9 @@ const LandingPage = () => {
 
   return (
     <main>
-      <section className="flex flex-col items-center w-full">
-        <div
-          className="flex flex-col justify-center items-center py-80 w-full xl:bg-fixed bg-no-repeat bg-cover bg-top"
-          style={{
-            backgroundImage: 'url(/images/backgrounds/1.jpg)'
-          }}>
-          <Header>Welcome To The Ambrosian Guild</Header>
+      <Section>
+        <ParallaxSection url="/images/backgrounds/1.jpg">
+          <Header level="1">Welcome To The Ambrosian Guild</Header>
           <div className="py-8">
             <button
               disabled
@@ -50,8 +77,8 @@ const LandingPage = () => {
               Mint (coming soon)
             </button>
           </div>
-        </div>
-        <div className="flex flex-col items-center p-16 w-full bg-black">
+        </ParallaxSection>
+        <ContentSection>
           <div className="py-8 flex flex-wrap justify-center max-w-4xl">
             {R.range(1, 5).map(num => (
               <div key={num} className="p-2 md:p-4 w-1/2 md:w-1/4">
@@ -62,13 +89,13 @@ const LandingPage = () => {
               </div>
             ))}
           </div>
-          <p className="py-8 text-white text-center md:text-3xl max-w-4xl">
+          <Paragraph>
             In a place that knows no time, where Olympians live their days and
             the clouds look like gold, lies Mt. Olympus. This is the home of the
             Champions, Gods, and honorable Legends whose deeds shall be
             remembered for eternity.
-          </p>
-          <p className="py-8 text-white text-center md:text-3xl max-w-4xl">
+          </Paragraph>
+          <Paragraph>
             In the heart of the cosmos lies the land of the mortals and the
             darkness of the Underworld. The Greek cosmos is wide and vast. You
             can find everything from the Palace of Zeus to the Garden of
@@ -77,23 +104,23 @@ const LandingPage = () => {
             Styx. If you are valiant enough, you can peek into the Gates of the
             Underworld, or even the Abyss of Tartarus… where the Titans are
             patiently waiting for their time to reclaim what they deem theirs.
-          </p>
-          <p className="py-8 text-white text-center md:text-3xl max-w-4xl">
+          </Paragraph>
+          <Paragraph>
             For eons, far beyond what any human can grasp, the Gates that hold
             these Titans had remained closed. However, this was until Chaos, a
             God that precedes the universe, decided to make things interesting.
             Chaos, motivated by the same thing that granted him his name, tipped
             the balances of power and unleashed the Titans from their slumber.
-          </p>
-          <p className="py-8 text-white text-center md:text-3xl max-w-4xl">
+          </Paragraph>
+          <Paragraph>
             What comes next, is nothing short of a nightmare. The Titans finally
             freed from their shackles, used their power to breach the heavens
             and take Olympus by force. The battle was short. Olympians were not
             prepared for an attack of this magnitude. Tarnished by the
             unfamiliar taste of defeat and exile, they seeked refuge in the
             world of men.
-          </p>
-          <p className="py-8 text-white text-center md:text-3xl max-w-4xl">
+          </Paragraph>
+          <Paragraph>
             Anguished, and craving their sacred Ambrosia, Olympians who wanted
             their home back, mortals that would do anything to try the
             Gods&apos; elixir, beings of the Underworld wanting to return the
@@ -102,34 +129,22 @@ const LandingPage = () => {
             regress the hands of time. An alliance determined to imprison the
             Titans back where they belong. An alliance like no other. These are
             the Ambrosians.
-          </p>
-        </div>
-      </section>
-      <section className="flex flex-col items-center w-full">
-        <div
-          className="flex justify-center py-80 w-full xl:bg-fixed bg-no-repeat bg-cover bg-top"
-          style={{
-            backgroundImage: 'url(/images/backgrounds/2.jpg)'
-          }}>
-          <h2 className="max-w-sm md:max-w-3xl text-4xl md:text-7xl font-caesar text-center text-white text-shadow">
-            Ambrosian Manifesto
-          </h2>
-        </div>
-        <div className="flex flex-col items-center p-16 w-full bg-black">
+          </Paragraph>
+        </ContentSection>
+      </Section>
+      <Section>
+        <ParallaxSection url="/images/backgrounds/2.jpg">
+          <Header>Ambrosian Manifesto</Header>
+        </ParallaxSection>
+        <ContentSection>
           <img src="/images/manifesto.png" />
-        </div>
-      </section>
-      <section className="flex flex-col items-center w-full">
-        <div
-          className="flex flex-col justify-center items-center py-80 w-full xl:bg-fixed bg-no-repeat bg-cover bg-top"
-          style={{
-            backgroundImage: 'url(/images/backgrounds/3.jpg)'
-          }}>
-          <h2 className="max-w-sm md:max-w-3xl text-4xl md:text-7xl font-caesar text-center text-white text-shadow">
-            Roadmap
-          </h2>
-        </div>
-        <div className="flex flex-col items-center p-16 w-full bg-black">
+        </ContentSection>
+      </Section>
+      <Section>
+        <ParallaxSection url="/images/backgrounds/3.jpg">
+          <Header>Roadmap</Header>
+        </ParallaxSection>
+        <ContentSection>
           <div className="max-w-7xl flex flex-col lg:flex-row items-center">
             <ul className="p-8 lg:p-16 md:w-1/2 text-sm md:text-xl text-white">
               {iconList.map(({ icon, text }, index) => (
@@ -158,23 +173,19 @@ const LandingPage = () => {
               </Modal>
             </div>
           </div>
-        </div>
-      </section>
-      <section className="flex flex-col items-center w-full">
-        <div
-          className="flex flex-col justify-center items-center py-80 w-full xl:bg-fixed bg-no-repeat bg-cover bg-top"
-          style={{
-            backgroundImage: 'url(/images/backgrounds/4.jpg)'
-          }}>
-          <h2 className="max-w-sm md:max-w-3xl text-4xl md:text-7xl font-caesar text-center text-white text-shadow">
+        </ContentSection>
+      </Section>
+      <Section>
+        <ParallaxSection url="/images/backgrounds/4.jpg">
+          <Header>
             Attribute List
             <br /> (coming soon)
-          </h2>
-        </div>
-        <div className="flex flex-col items-center p-16 w-full bg-black">
-          <p className="py-8 text-white text-center md:text-3xl max-w-4xl">
+          </Header>
+        </ParallaxSection>
+        <ContentSection>
+          <h3 className="py-8 font-caesar text-3xl text-white">
             Meet the Team
-          </p>
+          </h3>
           <ul className="max-w-7xl flex flex-wrap my-8 text-sm md:text-xl text-white">
             {teamList.map(({ src, name, role }, index) => (
               <li
@@ -191,9 +202,7 @@ const LandingPage = () => {
               </li>
             ))}
           </ul>
-          <p className="py-8 text-white text-center md:text-3xl max-w-4xl">
-            Contact Us
-          </p>
+          <h3 className="py-8 font-caesar text-3xl text-white">Contact Us</h3>
           <ul className="max-w-7xl flex flex-col md:flex-row my-8 text-sm md:text-xl text-white">
             <li className="m-4">
               <a
@@ -235,8 +244,8 @@ const LandingPage = () => {
             />
           </button>
           <p className="text-white">All rights reserved 2021 ©</p>
-        </div>
-      </section>
+        </ContentSection>
+      </Section>
     </main>
   )
 }
