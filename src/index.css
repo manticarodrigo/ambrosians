@@ -18,3 +18,8 @@
     }
   }
 }
+
+:root {
+  --swiper-navigation-color: white;
+  --swiper-theme-color: white;
+}

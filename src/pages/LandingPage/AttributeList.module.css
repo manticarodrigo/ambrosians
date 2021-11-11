@@ -1,0 +1,6 @@
+.slider :global(.swiper-slide-next),
+.slider :global(.swiper-slide-prev) {
+  opacity: 0.8;
+  transition: 0.25s ease-in-out;
+  filter: blur(2px);
+}

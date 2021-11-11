@@ -14,7 +14,7 @@ import {
   getCandyMachineState,
   mintOneToken,
   shortenAddress
-} from '../utils/candy-machine'
+} from 'utils/candy-machine'
 
 const ConnectButton = styled(WalletDialogButton)``
 
