@@ -26,7 +26,7 @@ const iconList = [
     icon: 'harp',
     text: 'Ownership and Commercial Use of Your NFT'
   },
-  { icon: 'sandal', text: 'Earn Passively' }
+  { icon: 'sandal', text: 'Ambrosian Lottery' }
 ]
 
 const LandingPage = () => {
@@ -39,8 +39,11 @@ const LandingPage = () => {
         <ParallaxSection url="/images/backgrounds/1.jpg">
           <Header level="1">Welcome To The Ambrosian Guild</Header>
           <div className="py-8">
-            <Button disabled className="cursor-not-allowed">
-              Mint (coming soon)
+            <Button
+              disabled
+              className="flex flex-col items-center cursor-not-allowed">
+              <span className="text-xl font-black">Connect Wallet</span>
+              <span className="text-sm font-light">Coming Soon - Nov 20th</span>
             </Button>
           </div>
         </ParallaxSection>
