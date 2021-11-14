@@ -38,12 +38,12 @@ const LandingPage = () => {
       <Section>
         <ParallaxSection url="/images/backgrounds/1.jpg">
           <Header level="1">Welcome To The Ambrosian Guild</Header>
-          <div className="py-8">
-            <Button
-              disabled
-              className="flex flex-col items-center cursor-not-allowed">
-              <span className="text-xl font-black">Connect Wallet</span>
-              <span className="text-sm font-light">Coming Soon - Nov 20th</span>
+          <div className="flex flex-col py-8">
+            <Button disabled className="mb-2 cursor-not-allowed">
+              Connect Wallet
+            </Button>
+            <Button disabled className="cursor-not-allowed">
+              Mint (Nov 20th)
             </Button>
           </div>
         </ParallaxSection>
