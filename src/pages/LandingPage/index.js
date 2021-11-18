@@ -16,6 +16,7 @@ import {
   ContentSection
 } from './ui'
 
+import AttributeList from './AttributeList'
 import Footer from './Footer'
 import ExpandVertical from 'components/ExpandVertical'
 
@@ -165,12 +166,11 @@ const LandingPage = () => {
       </Section>
       <Section>
         <ParallaxSection url="/images/backgrounds/4.jpg">
-          <Header>
-            Attribute List
-            <br />
-            (Coming Soon)
-          </Header>
+          <Header>Attribute List</Header>
         </ParallaxSection>
+        <ContentSection>
+          <AttributeList />
+        </ContentSection>
       </Section>
       <Section>
         <Footer />
