@@ -4,10 +4,30 @@ import SwiperCore, { Navigation, EffectCoverflow, A11y } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/swiper-bundle.min.css'
 
+import { labels } from 'utils/labels'
+import { rarities } from 'utils/rarities'
+
 import Select, { Item } from 'components/Select'
 
 import styles from './AttributeList.module.css'
-import { labels } from 'utils/labels'
+
+const rarityLabelMap = {
+  common: 'Common',
+  uncommon: 'Uncommon',
+  rare: 'Rare',
+  'very-rare': 'Very Rare',
+  legendary: 'Legendary',
+  godly: 'Godly'
+}
+
+const rarityColorMap = {
+  common: 'bg-gray-600',
+  uncommon: 'bg-green-600',
+  rare: 'bg-blue-600',
+  'very-rare': 'bg-purple-600',
+  legendary: 'bg-red-600',
+  godly: 'bg-yellow-600'
+}
 
 SwiperCore.use([Navigation, EffectCoverflow, A11y])
 
@@ -63,6 +83,7 @@ const AttributeList = () => {
         onSwiper={setSwiper}>
         {Object.keys(labels[selectedLayerKey]).map((key, i) => {
           const label = labels[selectedLayerKey][key]
+          const rarity = rarities[selectedLayerKey][key]
 
           return (
             <SwiperSlide
@@ -78,17 +99,12 @@ const AttributeList = () => {
                 <span className="mt-2 text-center text-white text-lg font-black">
                   {label}
                 </span>
-                {/* <span className="mt-2 flex items-center text-white text-lg">
+                <span className="mt-2 flex items-center text-white text-lg">
                   <span
-                    className={`rounded p-2 font-black font-caesar text-sm bg-${getRarityColor(
-                      rarity
-                    )}`}>
-                    {getRarityLabel(rarity)}{' '}
-                    <span className="font-sans">
-                      - {(rarity * 100).toFixed(1)}%
-                    </span>
+                    className={`rounded px-3 py-2 font-black font-caesar text-sm ${rarityColorMap[rarity]}`}>
+                    {rarityLabelMap[rarity]}
                   </span>
-                </span> */}
+                </span>
               </div>
             </SwiperSlide>
           )
