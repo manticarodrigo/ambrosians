@@ -41,10 +41,10 @@ const LandingPage = () => {
           <Header level="1">Welcome To The Ambrosian Guild</Header>
           <div className="flex flex-col py-8">
             <Button disabled className="mb-2 cursor-not-allowed">
-              Connect Wallet
+              Connect Wallet (Nov 20th)
             </Button>
             <Button disabled className="cursor-not-allowed">
-              Mint (Nov 20th)
+              Mint (0.77 SOL)
             </Button>
           </div>
         </ParallaxSection>
