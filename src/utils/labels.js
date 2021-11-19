@@ -3,10 +3,10 @@ const background = {
   'nymph-forest': `Nymph's Forest`,
   colisseum: `Colisseum`,
   underworld: `The Underworld`,
-  'zeus-palace': `Zeus' Palace`,
-  'tartarus-gates': `Gates of Tartarus`,
   chaos: `Chaos`,
-  'poseidons-kingdom': `Poseidon's Kingdom`
+  'poseidons-kingdom': `Poseidon's Kingdom`,
+  'tartarus-gates': `Gates of Tartarus`,
+  'zeus-palace': `Zeus' Palace`
 }
 
 const skin = {
@@ -54,21 +54,21 @@ const hair = {
   short: 'Short',
   'light-brown': 'Light Brown',
   olympian: 'Olympian',
-  golden: 'Golden',
   floral: 'Floral',
   bearded: 'Bearded',
   shaved: 'Shaved',
   grey: 'Grey',
+  black: 'Black',
   ginger: 'Ginger',
   purple: 'Purple',
   mohawk: 'Mohawk',
-  black: 'Black',
-  'long-bitcoin': 'Long Bitcoin',
   bitcoin: 'Bitcoin',
+  golden: 'Golden',
   'green-medusa': 'Medusa Green',
   'pink-medusa': 'Medusa Pink',
   monk: 'Monk',
   godly: 'Godly',
+  'long-bitcoin': 'Long Bitcoin',
   zeus: 'Zeus',
   hades: 'Hades',
   poseidon: 'Poseidon'
