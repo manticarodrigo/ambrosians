@@ -4,9 +4,10 @@ import * as R from 'ramda'
 import Modal from 'react-responsive-modal'
 import 'react-responsive-modal/styles.css'
 
-import Button from 'components/Button'
-
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/solid'
+
+import MintButton from 'components/MintButton'
+import ExpandVertical from 'components/ExpandVertical'
 
 import {
   Section,
@@ -18,7 +19,6 @@ import {
 
 import AttributeList from './AttributeList'
 import Footer from './Footer'
-import ExpandVertical from 'components/ExpandVertical'
 
 const iconList = [
   { icon: 'vase', text: '7,777 Hand-drawn Generative Ambrosians' },
@@ -40,12 +40,7 @@ const LandingPage = () => {
         <ParallaxSection url="/images/backgrounds/1.jpg">
           <Header level="1">Welcome To The Ambrosian Guild</Header>
           <div className="flex flex-col py-8">
-            <Button disabled className="mb-2 cursor-not-allowed">
-              Connect Wallet (Nov 20th)
-            </Button>
-            <Button disabled className="cursor-not-allowed">
-              Mint (0.77 SOL)
-            </Button>
+            <MintButton />
           </div>
         </ParallaxSection>
         <ContentSection>

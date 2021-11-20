@@ -1,6 +1,4 @@
-import { useMemo } from 'react'
-
-import MintButton from './MintButton'
+import React, { useMemo } from 'react'
 
 import * as anchor from '@project-serum/anchor'
 import { clusterApiUrl } from '@solana/web3.js'
@@ -19,6 +17,8 @@ import {
 
 import { WalletDialogProvider } from '@solana/wallet-adapter-material-ui'
 import { createTheme, ThemeProvider } from '@material-ui/core'
+
+import MintButton from './button'
 
 const treasury = new anchor.web3.PublicKey(
   process.env.REACT_APP_TREASURY_ADDRESS
@@ -66,7 +66,7 @@ const theme = createTheme({
   }
 })
 
-const App = () => {
+const MintButtonProvider = () => {
   const endpoint = useMemo(() => clusterApiUrl(network), [])
 
   const wallets = useMemo(
@@ -100,4 +100,4 @@ const App = () => {
   )
 }
 
-export default App
+export default MintButtonProvider

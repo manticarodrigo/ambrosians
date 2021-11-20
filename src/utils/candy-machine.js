@@ -28,6 +28,7 @@ export const awaitTransactionSignatureConfirmation = async (
     err: null
   }
   let subId = 0
+  // eslint-disable-next-line no-async-promise-executor
   status = await new Promise(async (resolve, reject) => {
     setTimeout(() => {
       if (done) {
@@ -63,7 +64,7 @@ export const awaitTransactionSignatureConfirmation = async (
     }
     while (!done && queryStatus) {
       // eslint-disable-next-line no-loop-func
-      ;(async () => {
+      (async () => {
         try {
           const signatureStatuses = await connection.getSignatureStatuses([
             txid

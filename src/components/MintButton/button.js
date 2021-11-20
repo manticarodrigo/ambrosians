@@ -1,13 +1,15 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import styled from 'styled-components'
 import Countdown from 'react-countdown'
-import { Button, CircularProgress, Snackbar } from '@material-ui/core'
+import { CircularProgress, Snackbar } from '@material-ui/core'
 import Alert from '@material-ui/lab/Alert'
 
 import { LAMPORTS_PER_SOL } from '@solana/web3.js'
 
 import { useAnchorWallet } from '@solana/wallet-adapter-react'
-import { WalletDialogButton } from '@solana/wallet-adapter-material-ui'
+import { useWalletDialog } from '@solana/wallet-adapter-material-ui'
+
+import Button from 'components/Button'
 
 import {
   awaitTransactionSignatureConfirmation,
@@ -16,19 +18,17 @@ import {
   shortenAddress
 } from 'utils/candy-machine'
 
-const ConnectButton = styled(WalletDialogButton)``
-
 const CounterText = styled.span`` // add your styles here
 
-const MintContainer = styled.div`` // add your styles here
-
-const MintButton = styled(Button)`` // add your styles here
-
-const Home = props => {
+const MintButton = props => {
   const [balance, setBalance] = useState()
   const [isActive, setIsActive] = useState(false) // true when countdown completes
   const [isSoldOut, setIsSoldOut] = useState(false) // true when items remaining is zero
   const [isMinting, setIsMinting] = useState(false) // true when user got to press MINT
+
+  const [itemsAvailable, setItemsAvailable] = useState(0)
+  const [itemsRedeemed, setItemsRedeemed] = useState(0)
+  const [itemsRemaining, setItemsRemaining] = useState(0)
 
   const [alertState, setAlertState] = useState({
     open: false,
@@ -38,8 +38,44 @@ const Home = props => {
 
   const [startDate, setStartDate] = useState(new Date(props.startDate))
 
+  const { setOpen } = useWalletDialog()
+
+  const handleConnectClick = useCallback(
+    event => {
+      if (!event.defaultPrevented) setOpen(true)
+    },
+    [setOpen]
+  )
+
   const wallet = useAnchorWallet()
+  console.log('wallet', wallet);
   const [candyMachine, setCandyMachine] = useState()
+
+  const refreshCandyMachineState = () => {
+    (async () => {
+      if (!wallet) return
+
+      const {
+        candyMachine,
+        goLiveDate,
+        itemsAvailable,
+        itemsRemaining,
+        itemsRedeemed
+      } = await getCandyMachineState(
+        wallet,
+        props.candyMachineId,
+        props.connection
+      )
+
+      setItemsAvailable(itemsAvailable)
+      setItemsRemaining(itemsRemaining)
+      setItemsRedeemed(itemsRedeemed)
+
+      setIsSoldOut(itemsRemaining === 0)
+      setStartDate(goLiveDate)
+      setCandyMachine(candyMachine)
+    })()
+  }
 
   const onMint = async () => {
     try {
@@ -78,8 +114,7 @@ const Home = props => {
       // TODO: blech:
       let message = error.msg || 'Minting failed! Please try again!'
       if (!error.msg) {
-        if (error.message.indexOf('0x138')) {
-        } else if (error.message.indexOf('0x137')) {
+        if (error.message.indexOf('0x137')) {
           message = `SOLD OUT!`
         } else if (error.message.indexOf('0x135')) {
           message = `Insufficient funds to mint. Please fund your wallet.`
@@ -104,11 +139,12 @@ const Home = props => {
         setBalance(balance / LAMPORTS_PER_SOL)
       }
       setIsMinting(false)
+      refreshCandyMachineState()
     }
   }
 
   useEffect(() => {
-    ;(async () => {
+    (async () => {
       if (wallet) {
         const balance = await props.connection.getBalance(wallet.publicKey)
         setBalance(balance / LAMPORTS_PER_SOL)
@@ -116,58 +152,56 @@ const Home = props => {
     })()
   }, [wallet, props.connection])
 
-  useEffect(() => {
-    ;(async () => {
-      if (!wallet) return
-
-      const { candyMachine, goLiveDate, itemsRemaining } =
-        await getCandyMachineState(
-          wallet,
-          props.candyMachineId,
-          props.connection
-        )
-
-      setIsSoldOut(itemsRemaining === 0)
-      setStartDate(goLiveDate)
-      setCandyMachine(candyMachine)
-    })()
-  }, [wallet, props.candyMachineId, props.connection])
+  useEffect(refreshCandyMachineState, [
+    wallet,
+    props.candyMachineId,
+    props.connection
+  ])
 
   return (
-    <main>
-      {wallet && (
-        <p>Address: {shortenAddress(wallet.publicKey.toBase58() || '')}</p>
+    <>
+      {/* {wallet && (
+        <p>Wallet {shortenAddress(wallet.publicKey.toBase58() || '')}</p>
       )}
 
       {wallet && <p>Balance: {(balance || 0).toLocaleString()} SOL</p>}
 
-      <MintContainer>
+      {wallet && <p>Total Available: {itemsAvailable}</p>}
+
+      {wallet && <p>Redeemed: {itemsRedeemed}</p>}
+
+      {wallet && <p>Remaining: {itemsRemaining}</p>} */}
+
+      <>
         {!wallet ? (
-          <ConnectButton>Connect Wallet</ConnectButton>
+          <Button onClick={handleConnectClick}>Connect Wallet</Button>
         ) : (
-          <MintButton
+          <Button
             disabled={isSoldOut || isMinting || !isActive}
-            onClick={onMint}
-            variant="contained">
+            onClick={onMint}>
             {isSoldOut ? (
-              'SOLD OUT'
+              'Sold Out'
             ) : isActive ? (
               isMinting ? (
                 <CircularProgress />
               ) : (
-                'MINT'
+                'Mint'
               )
             ) : (
-              <Countdown
-                date={startDate}
-                onMount={({ completed }) => completed && setIsActive(true)}
-                onComplete={() => setIsActive(true)}
-                renderer={renderCounter}
-              />
+              <>
+                <Countdown
+                  date={startDate}
+                  onMount={({ completed }) => {
+                    completed && setIsActive(true)
+                  }}
+                  onComplete={() => setIsActive(true)}
+                  renderer={renderCounter}
+                />
+              </>
             )}
-          </MintButton>
+          </Button>
         )}
-      </MintContainer>
+      </>
 
       <Snackbar
         open={alertState.open}
@@ -179,16 +213,16 @@ const Home = props => {
           {alertState.message}
         </Alert>
       </Snackbar>
-    </main>
+    </>
   )
 }
 
-const renderCounter = ({ days, hours, minutes, seconds, completed }) => {
+const renderCounter = ({ days, hours, minutes, seconds }) => {
   return (
-    <CounterText>
-      {hours} hours, {minutes} minutes, {seconds} seconds
-    </CounterText>
+    <>
+      {hours + (days || 0) * 24} hours, {minutes} minutes, {seconds} seconds
+    </>
   )
 }
 
-export default Home
+export default MintButton
