@@ -48,7 +48,6 @@ const MintButton = props => {
   )
 
   const wallet = useAnchorWallet()
-  console.log('wallet', wallet);
   const [candyMachine, setCandyMachine] = useState()
 
   const refreshCandyMachineState = () => {
