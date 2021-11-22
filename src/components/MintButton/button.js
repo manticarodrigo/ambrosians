@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useCallback } from 'react'
-import styled from 'styled-components'
 import Countdown from 'react-countdown'
 import { CircularProgress, Snackbar } from '@material-ui/core'
 import Alert from '@material-ui/lab/Alert'
@@ -17,8 +16,6 @@ import {
   mintOneToken,
   shortenAddress
 } from 'utils/candy-machine'
-
-const CounterText = styled.span`` // add your styles here
 
 const MintButton = props => {
   const [balance, setBalance] = useState()
@@ -113,9 +110,9 @@ const MintButton = props => {
       // TODO: blech:
       let message = error.msg || 'Minting failed! Please try again!'
       if (!error.msg) {
-        if (error.message.indexOf('0x137')) {
+        if (error.message.indexOf('0x137') !== -1) {
           message = `SOLD OUT!`
-        } else if (error.message.indexOf('0x135')) {
+        } else if (error.message.indexOf('0x135') !== -1) {
           message = `Insufficient funds to mint. Please fund your wallet.`
         }
       } else {
